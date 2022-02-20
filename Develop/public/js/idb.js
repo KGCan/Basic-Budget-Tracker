@@ -4,14 +4,16 @@ let db;
 // establish a connection to IndexedDB database
 const request = indexedDB.open('budget-tracker', 1);
 
-
+// create 'pending transaction' object store and set auto increment to true
 request.onupgradeneeded = function(event) {
     const db = event.target.result;
-    db.createObjectStore('pending-transaction', { autoIncrement: true});
+    db.createObjectStore('pending transaction', { autoIncrement: true});
 };
 
 request.onsuccess = function(event) {
     db = event.target.result;
+
+    // confirm whether app is online prior to reading from db, if yes run the checktransactions function to send all local data to the api
     if (navigator.onLine) {
         checkTransactions();
     }
@@ -21,8 +23,9 @@ request.onerror = function(event) {
     console.log('error' + event.target.errorCode);
 };
 
+// if there is no internect connection, the savetransaction function will be executed
 function saveTransaction(recordTransaction) {
-    const newTransaction = db.newTransaction(['pending'], 'readwrite');
+    const newTransaction = db.newTransaction(['pending transaction'], 'readwrite');
 
     const storeTransaction = newTransaction.objectStore('pending transaction');
 
@@ -54,3 +57,6 @@ function checkTransactions() {
         }
     };
 }
+
+// event listener for when the app comes back online
+window.addEventListener('online', checkTransactions);
