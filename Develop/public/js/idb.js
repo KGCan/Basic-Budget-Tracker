@@ -24,12 +24,12 @@ request.onerror = function(event) {
 };
 
 // if there is no internect connection, the savetransaction function will be executed
-function saveTransaction(recordTransaction) {
+function saveRecord(record) {
     const newTransaction = db.newTransaction(['pending transaction'], 'readwrite');
 
     const storeTransaction = newTransaction.objectStore('pending transaction');
 
-    storeTransaction.add(recordTransaction);
+    storeTransaction.add(record);
 };
 
 function checkTransactions() {
@@ -58,5 +58,5 @@ function checkTransactions() {
     };
 }
 
-// event listener for when the app comes back online
+// event listener for when the app comes back on
 window.addEventListener('online', checkTransactions);
