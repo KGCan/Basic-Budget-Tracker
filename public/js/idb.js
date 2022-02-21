@@ -50,9 +50,9 @@ function checkTransactions() {
             })
             .then(response => response.json())
             .then(() => {
-                const newTransaction = db.transaction(['pending transaction'], 'readwrite');
+                const newTransaction = db.newTransaction(['pending transaction'], 'readwrite');
 
-                const storeTransaction = newTransaction.objectstore('pending transaction');
+                const storeTransaction = newTransaction.objectStore('pending transaction');
 
                 storeTransaction.clear();
             });
