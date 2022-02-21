@@ -2,7 +2,7 @@
 let db;
 
 // establish a connection to IndexedDB database
-const request = indexedDB.open('budget-tracker', 1);
+const request = indexedDB.open('budget', 1);
 
 // create 'pending transaction' object store and set auto increment to true
 request.onupgradeneeded = function(event) {
