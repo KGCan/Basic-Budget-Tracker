@@ -1,7 +1,7 @@
 # Basic-Budget-Tracker
 Module 19 Challenge - Progressive Web Applications (PWA): Budget Tracker
 
-** put screen grab here **
+![Screenshot 2022-02-20 204706](https://user-images.githubusercontent.com/88002224/154891045-8fcb7af8-9320-4932-9233-50d62599bf02.png)
 
 ## Table of Contents
 
@@ -42,7 +42,10 @@ THEN the deposits or expenses added while they were offline are added to their t
 
 ## Usage: 
 
-include deployed url and github url here
+GitHub Url: https://github.com/KGCan/Basic-Budget-Tracker.git
+
+Deployed with Heroku: https://basic-budget-tracker-app.herokuapp.com/
+
 &nbsp;
 
  ## Resources:
