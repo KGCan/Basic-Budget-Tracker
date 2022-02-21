@@ -34,7 +34,9 @@ function saveRecord(record) {
 
 function checkTransactions() {
     const newTransaction = db.newTransaction(['pending transaction'], 'readwrite');
+
     const storeTransaction = newTransaction.objectStore('pending transaction');
+    
     const getAllTransactions = storeTransaction.getAll();
 
     getAllTransactions.onsuccess = function() {
